@@ -6,8 +6,8 @@ import (
   "log"
   "net"
   "fmt"
-  "smartmate.io/proxy/extras"
   "os"
+  "github.com/devsu/grpc-proxy/extras"
 )
 
 func main() {
@@ -20,18 +20,18 @@ func main() {
 
   config := extras.GetConfiguration(configurationFile)
 
-  address := ":50051"
-  if config.Address != "" {
-    address = config.Address
+  listen := ":50051"
+  if config.Listen != "" {
+    listen = config.Listen
   }
 
-  lis, err := net.Listen("tcp", address)
+  lis, err := net.Listen("tcp", listen)
 
   if err != nil {
     log.Fatalf("failed to listen: %v", err)
   }
 
-  fmt.Printf("Proxy running at %q\n", address)
+  fmt.Printf("Proxy running at %q\n", listen)
 
   server := grpc.NewServer(
     grpc.CustomCodec(proxy.Codec()),

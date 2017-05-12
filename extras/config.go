@@ -9,8 +9,8 @@ import (
 )
 
 type Config struct {
-  Address string      `json:"address"`
-  Verbose bool        `json:"verbose"`
+  Listen string       `json:"listen"`
+  Verbose  bool       `json:"verbose"`
   Backends []Backend  `json:"backends"`
 }
 

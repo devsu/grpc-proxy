@@ -1,6 +1,6 @@
 {
   "verbose": true,
-  "address": ":50051",
+  "listen": ":50051",
   "backends": [
     {
       "backend": "127.0.0.1:3000",
