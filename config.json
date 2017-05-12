@@ -1,16 +1,18 @@
 {
   "verbose": true,
-  "listen": ":50051",
+  "listen": "grpc.localhost:50051",
+  "certFile": "./ssl/grpc.localhost.pem",
+  "keyFile": "./ssl/grpc.localhost.key",
   "backends": [
     {
-      "backend": "127.0.0.1:3000",
+      "backend": "grpc.localhost:3000",
       "filter": "/myapp.Greeter",
-      "withInsecure": true
+      "certFile": "./ssl/grpc.localhost.pem",
+      "serverName": "grpc.localhost"
     },
     {
       "backendEnv": "ANOTHER_BACKEND",
-      "filter": "/com.anotherApp.",
-      "withInsecure": false
+      "filter": "/com.anotherApp."
     }
   ]
 }

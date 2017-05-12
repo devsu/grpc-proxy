@@ -8,6 +8,8 @@ import (
   "fmt"
   "os"
   "github.com/devsu/grpc-proxy/extras"
+  "google.golang.org/grpc/credentials"
+  "google.golang.org/grpc/grpclog"
 )
 
 func main() {
@@ -33,11 +35,26 @@ func main() {
 
   fmt.Printf("Proxy running at %q\n", listen)
 
-  server := grpc.NewServer(
-    grpc.CustomCodec(proxy.Codec()),
-    grpc.UnknownServiceHandler(proxy.TransparentHandler(extras.GetDirector(config))))
+  server := GetServer(config)
 
   if err := server.Serve(lis); err != nil {
     log.Fatalf("failed to serve: %v", err)
   }
+}
+
+func GetServer (config extras.Config) *grpc.Server {
+  var opts []grpc.ServerOption
+
+  opts = append(opts, grpc.CustomCodec(proxy.Codec()),
+    grpc.UnknownServiceHandler(proxy.TransparentHandler(extras.GetDirector(config))))
+
+  if config.CertFile != "" && config.KeyFile != "" {
+    creds, err := credentials.NewServerTLSFromFile(config.CertFile, config.KeyFile)
+    if err != nil {
+      grpclog.Fatalf("Failed to generate credentials %v", err)
+    }
+    opts = append(opts, grpc.Creds(creds))
+  }
+
+  return grpc.NewServer(opts...)
 }

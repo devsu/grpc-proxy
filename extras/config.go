@@ -10,7 +10,9 @@ import (
 
 type Config struct {
   Listen string       `json:"listen"`
-  Verbose  bool       `json:"verbose"`
+  Verbose bool        `json:"verbose"`
+  CertFile string     `json:"certFile"`
+  KeyFile string      `json:"keyFile"`
   Backends []Backend  `json:"backends"`
 }
 
@@ -18,7 +20,8 @@ type Backend struct {
   Filter string       `json:"filter"`
   Backend string      `json:"backend"`
   BackendEnv string   `json:"backendEnv"`
-  WithInsecure bool   `json:"withInsecure"`
+  CertFile string     `json:"certFile"`
+  ServerName string   `json:"serverName"`
 }
 
 func GetConfiguration(file string) Config {
