@@ -1,0 +1,16 @@
+{
+  "verbose": true,
+  "address": ":50051",
+  "backends": [
+    {
+      "backend": "127.0.0.1:3000",
+      "filter": "/myapp.Greeter",
+      "withInsecure": true
+    },
+    {
+      "backendEnv": "ANOTHER_BACKEND",
+      "filter": "/com.anotherApp.",
+      "withInsecure": false
+    }
+  ]
+}
