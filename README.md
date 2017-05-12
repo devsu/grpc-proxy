@@ -87,8 +87,8 @@ Can be found in the examples folder in this repo.
 
 ## License and Credits
 
-Devsu LLC. Copyright 2017. 
+Devsu LLC. Apache 2.0 License. Copyright 2017. 
 
-It uses [mwitkow/grpc-proxy](https://github.com/mwitkow/grpc-proxy) which is licensed under Apache2 too.
+It uses [mwitkow/grpc-proxy](https://github.com/mwitkow/grpc-proxy) which is licensed under Apache 2.0 too.
 
 Built by the [GRPC experts](https://devsu.com) at Devsu.
