@@ -70,6 +70,7 @@ The backend options are:
 | Option | Description |
 |--------|-------------|
 | backend | The address that the proxy should connect to. |
+| backendEnv | Environment variable to read the value of backend from. |
 | filter  | The prefix of the `fullServiceName` that will be used to match calls against the backends. <br><br> The *service full name* it's compound by the package name + the service name. You can use the full name of the service or the full name of the package, or just part of it. Also note that it always starts with an slash `/`.|
 | certFile | Path to the `.pem` file used to connect to the backend (if the backend has TLS configured). |
 | serverName | Server name of the backend. Used to create the TLS client. Must match with the certificate. |
