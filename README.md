@@ -5,9 +5,13 @@ A runnable, configurable Go reverse proxy that allows for rich routing of gRPC c
 
 Alpha. It's working, but it hasn't been battle tested.
 
+## Docker
+
+If you want to use it right away, there's a [docker image](https://github.com/devsu/docker-grpc-proxy) available. 
+
 ## Installation
 
-Make sure you [installed go](https://golang.org/doc/install), then just run:
+Installation is pretty easy. Make sure you [installed go](https://golang.org/doc/install), then just run:
 
 ```bash
 go get github.com/devsu/grpc-proxy
@@ -51,7 +55,7 @@ Use this as an example.
 }
 ```
 
-The proxy will listen in a secure channel. The first backend will be secure as well, whereas the second backend is not.
+In this example the proxy will listen in a secure channel. The first backend will be secure as well, whereas the second backend is not.
 
 ### Options
 
