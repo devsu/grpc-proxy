@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package myinsecureapp;
+
+message Person {
+  string name = 1;
+}
+
+message Greeting {
+  string greeting = 1;
+}
+
+service Greeter {
+  rpc SayHello (Person) returns (Greeting) { }
+}

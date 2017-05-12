@@ -53,8 +53,6 @@ Use this as an example.
 
 The proxy will listen in a secure channel. The first backend will be secure as well, whereas the second backend is not.
 
-*TODO: We have tested with both proxy and backends secure, or both insecure. In theory it should work for any case, but we might need some testing to verify that all combinations work properly.*
-
 ### Options
 
 | Option | Description | Default |
@@ -76,10 +74,13 @@ The backend options are:
 | certFile | Path to the `.pem` file used to connect to the backend (if the backend has TLS configured). |
 | serverName | Server name of the backend. Used to create the TLS client. Must match with the certificate. |
 
+## Examples
+
+Can be found in the examples folder in this repo.
 
 ## Roadmap
 
-- Support other strategies for choosing the backend (besides the *prefix* strategy).
+- Support other strategies for choosing the backend (besides matching by *prefix*).
 - Add tests
 - Add examples in go
 

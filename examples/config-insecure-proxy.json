@@ -1,0 +1,16 @@
+{
+  "verbose": true,
+  "listen": "localhost:50051",
+  "backends": [
+    {
+      "backend": "localhost:3001",
+      "filter": "/myinsecureapp.Greeter"
+    },
+    {
+      "backend": "localhost:3002",
+      "filter": "/mysecureapp.",
+      "certFile": "./ssl/localhost.pem",
+      "serverName": "localhost"
+    }
+  ]
+}
