@@ -3,7 +3,7 @@ A runnable, configurable Go reverse proxy that allows for rich routing of gRPC c
 
 ## Status
 
-Alpha. It's working, but it hasn't been battle tested.
+~Alpha. It's working, but it hasn't been battle tested.~ Unmaintained.
 
 ## Docker
 
